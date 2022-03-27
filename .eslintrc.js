@@ -42,6 +42,8 @@ module.exports = {
         extensions: ['.jsx', '.tsx'],
       },
     ],
+    'react/prefer-stateless-function': 0,
+    'func-names': 0,
     'react/react-in-jsx-scope': 'off',
     'no-void': [
       'error',
@@ -56,6 +58,7 @@ module.exports = {
         unnamedComponents: 'function-expression',
       },
     ],
+
     'react/self-closing-comp': [
       'error',
       {
@@ -78,4 +81,4 @@ module.exports = {
       },
     },
   },
-}
+};
