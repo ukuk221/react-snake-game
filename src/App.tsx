@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import { VFC } from 'react';
+// CSS
 import './App.css';
+// hooks
+import { useSnake } from './hooks/useSnake';
+// const
+import { DEFAULT_GRID_SIZE } from './const';
 
-function App() {
+const App: VFC = function () {
+  // const App: VFC = () => {
+
+  const { bodyIndexes, snakeHeadIndex, fruitIndex, isGameover } = useSnake();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <p>SCORE: {bodyIndexes.length - 1}</p>
+      <div id="map">
+        {Array.from({ length: DEFAULT_GRID_SIZE * DEFAULT_GRID_SIZE }, (_, i) => i).map((v) => (
+          <div
+            className={`cell ${snakeHeadIndex === v ? 'head' : ''} ${bodyIndexes.includes(v) ? 'body' : ''} ${
+              fruitIndex === v ? 'fruit' : ''
+            }`}
+          />
+        ))}
+      </div>
+      {isGameover && (
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Gameover
+          <br />
+          <button type="button" onClick={() => window.location.reload()}>
+            RETRY
+          </button>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      )}
     </div>
   );
-}
+};
 
 export default App;

@@ -1,38 +1,23 @@
-.App {
-  text-align: center;
+#map {
+  --grid-size: 10; /* 10 x 10 マス（CSS変数） */
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 30px); /* 10列 幅30px */
+  grid-template-rows: repeat(var(--grid-size), 30px); /* 10行 高さ30px */
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* セルの色 */
+.cell {
+  border: 1px solid white;
+  background: whitesmoke;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ヘビの体の色 */
+.cell.body {
+  background: darkgray;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* フルーツの色 */
+.cell.fruit {
+  background: orangered;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ヘビの頭の色 */
+.cell.head {
+  background: dimgray;
 }
