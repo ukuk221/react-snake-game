@@ -9,6 +9,7 @@ export const useSnake = (): {
   snakeHeadIndex: number | null;
   fruitIndex: number;
   isGameover: boolean;
+  onKeyDownSp: (e: string) => void;
 } => {
   const gridSize = DEFAULT_GRID_SIZE;
   const { UP, DOWN, LEFT, RIGHT } = DIRECTIONS;
@@ -96,27 +97,47 @@ export const useSnake = (): {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEatingFruit]);
 
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      switch (e.key) {
-        case 'ArrowLeft': // 「←」キーが押された
-          setDirection(LEFT);
-          break;
-        case 'ArrowUp': // 「↑」キーが押された
-          setDirection(UP);
-          break;
-        case 'ArrowRight': // 「→」キーが押された
-          setDirection(RIGHT);
-          break;
-        case 'ArrowDown': // 「↓」キーが押された
-          setDirection(DOWN);
-          break;
-        default:
-          // eslint-disable-next-line
-          throw new Error('Unknown event');
-      }
-    };
+  const onKeyDown = (e: KeyboardEvent) => {
+    switch (e.key) {
+      case 'ArrowLeft': // 「←」キーが押された
+        setDirection(LEFT);
+        break;
+      case 'ArrowUp': // 「↑」キーが押された
+        setDirection(UP);
+        break;
+      case 'ArrowRight': // 「→」キーが押された
+        setDirection(RIGHT);
+        break;
+      case 'ArrowDown': // 「↓」キーが押された
+        setDirection(DOWN);
+        break;
+      default:
+        // eslint-disable-next-line
+        throw new Error('Unknown event');
+    }
+  };
 
+  const onKeyDownSp = (e: string) => {
+    switch (e) {
+      case 'ArrowLeft': // 「←」キーが押された
+        setDirection(LEFT);
+        break;
+      case 'ArrowUp': // 「↑」キーが押された
+        setDirection(UP);
+        break;
+      case 'ArrowRight': // 「→」キーが押された
+        setDirection(RIGHT);
+        break;
+      case 'ArrowDown': // 「↓」キーが押された
+        setDirection(DOWN);
+        break;
+      default:
+        // eslint-disable-next-line
+        throw new Error('Unknown event');
+    }
+  };
+
+  useEffect(() => {
     window.addEventListener('keydown', onKeyDown);
 
     return () => window.removeEventListener('keydown', onKeyDown);
@@ -128,6 +149,7 @@ export const useSnake = (): {
     snakeHeadIndex,
     fruitIndex,
     isGameover,
+    onKeyDownSp,
   };
 };
 

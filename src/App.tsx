@@ -35,6 +35,7 @@ const MapS = styled.div`
   display: grid;
   grid-template-columns: repeat(var(--grid-size), 30px); /* 10列 幅30px */
   grid-template-rows: repeat(var(--grid-size), 30px); /* 10行 高さ30px */
+  margin-bottom: 1.5rem;
 `;
 
 const CellS = styled.div`
@@ -57,10 +58,58 @@ const CellS = styled.div`
   }
 `;
 
+const ButtonGridS = styled.div`
+  width: 73vw;
+  background: #a9a9a9;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 10vh);
+
+  @media (min-width: 600px) {
+    display: none;
+  }
+`;
+
+const ButtonS = styled.button`
+  background: #696969;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ButtoTopS = styled(ButtonS)`
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+`;
+
+const ButtonLeftS = styled(ButtonS)`
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+`;
+
+const ButtonRightS = styled(ButtonS)`
+  grid-row: 2 / 3;
+  grid-column: 3/4;
+`;
+
+const ButtonBottomS = styled(ButtonS)`
+  grid-row: 3 / 4;
+  grid-column: 2/3;
+`;
+
+const ArrowS = styled.div<{ deg: string }>`
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7vw 6vh 30px;
+  border-color: transparent transparent #ffffff transparent;
+  transform: ${({ deg }) => (deg ? `rotate(${deg})` : '')};
+`;
+
 const App: VFC = function () {
   // const App: VFC = () => {
 
-  const { bodyIndexes, snakeHeadIndex, fruitIndex, isGameover } = useSnake();
+  const { bodyIndexes, snakeHeadIndex, fruitIndex, isGameover, onKeyDownSp } = useSnake();
 
   return (
     <MainS>
@@ -77,6 +126,22 @@ const App: VFC = function () {
             />
           ))}
         </MapS>
+
+        <ButtonGridS>
+          <ButtoTopS onClick={() => onKeyDownSp('ArrowUp')}>
+            <ArrowS deg="" />
+          </ButtoTopS>
+          <ButtonLeftS onClick={() => onKeyDownSp('ArrowLeft')}>
+            <ArrowS deg="-90deg " />
+          </ButtonLeftS>
+          <ButtonRightS onClick={() => onKeyDownSp('ArrowRight')}>
+            <ArrowS deg="90deg" />
+          </ButtonRightS>
+          <ButtonBottomS onClick={() => onKeyDownSp('ArrowDown')}>
+            <ArrowS deg="180deg" />
+          </ButtonBottomS>
+        </ButtonGridS>
+
         {isGameover && (
           <p>
             Gameover
