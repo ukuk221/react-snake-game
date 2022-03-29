@@ -20,7 +20,9 @@ export const useSnake = (): {
   const [bodyIndexes, setBodyIndexes] = useState<(number | null)[]>([30]);
 
   const [direction, setDirection] = useState<DirectionsType>('→');
-  const [speed] = useState<number>(400);
+
+  // ヘビが動くスピード
+  const [speed] = useState<number>(300);
 
   const isFrameout = headPos.x < 0 || gridSize <= headPos.x || headPos.y < 0 || gridSize <= headPos.y;
 
