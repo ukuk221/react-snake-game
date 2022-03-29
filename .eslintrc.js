@@ -72,6 +72,14 @@ module.exports = {
     'no-extra-semi': 'error',
     'no-unexpected-multiline': 'error',
     'no-unreachable': 'error',
+    // src配下にてdevDependenciesのimport許可
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['src/**'],
+        optionalDependencies: false,
+      },
+    ],
   },
   settings: {
     'import/resolver': {
