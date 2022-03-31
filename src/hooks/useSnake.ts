@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 // Const
 import { DEFAULT_GRID_SIZE, DIRECTIONS } from '../utils/const';
 // Types
-import { HeadPosType, DirectionsType } from '../utils/type';
+import { DirectionsType } from '../utils/type';
 
 export const useSnake = (): {
   bodyIndexes: (number | null)[];
@@ -16,7 +16,7 @@ export const useSnake = (): {
 
   const [fruitIndex, setFruitIndex] = useState<number>(Math.floor(Math.random() * gridSize * gridSize));
 
-  const [headPos, setHeadPos] = useState<HeadPosType>({ x: 1, y: 3 });
+  const [headPos, setHeadPos] = useState({ x: 1, y: 3 });
 
   const [bodyIndexes, setBodyIndexes] = useState<(number | null)[]>([30]);
 

@@ -5,17 +5,24 @@ import Footer from './components/organisms/Footer';
 import Field from './components/organisms/Field';
 // Hooks
 import { useSnake } from './hooks/useSnake';
+// Utils
+import { common } from './utils/common';
 
-const App: VFC = () => (
-  <div className="flex justify-center items-center box-border">
-    <div className="app">
-      <Header />
+const App: VFC = () => {
+  const { initFields } = common();
+  const fields = initFields(35);
 
-      <Field />
+  return (
+    <div className="flex justify-center items-center box-border">
+      <div className="app">
+        <Header />
 
-      <Footer />
+        <Field fields={fields} />
+
+        <Footer />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default App;
