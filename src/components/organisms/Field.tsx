@@ -5,6 +5,12 @@ import { VFC } from 'react';
  * style
  */
 
-const Field: VFC = () => <div>p</div>;
+const Field: VFC = () => (
+  <div className="field">
+    {new Array(35 * 35).fill('').map(() => (
+      <div className="border border-1 border-black" />
+    ))}
+  </div>
+);
 
 export default Field;

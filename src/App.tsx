@@ -1,55 +1,21 @@
 import { VFC } from 'react';
-// CSS
-import './App.css';
-// library
-// components
+// Components
 import Header from './components/organisms/Header';
-import Body from './components/organisms/Body';
 import Footer from './components/organisms/Footer';
-// hooks
+import Field from './components/organisms/Field';
+// Hooks
 import { useSnake } from './hooks/useSnake';
-// const
-import { DEFAULT_GRID_SIZE } from './const';
 
-/**
- *
- * style
- *
- */
-// const ContentS = styled.div`
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   background-color: #000000;
-//   color: #ffffff;
-// `;
-
-const App: VFC = () => {
-  const { bodyIndexes, snakeHeadIndex, fruitIndex, isGameover, onKeyDownSp } = useSnake();
-
-  return (
-    <div>
+const App: VFC = () => (
+  <div className="flex justify-center items-center box-border">
+    <div className="app">
       <Header />
 
-      <Body />
+      <Field />
 
       <Footer />
-
-      <div className="text-red-400">こんにちは</div>
-
-      {isGameover && (
-        <p>
-          Gameover
-          <br />
-          <button type="button" onClick={() => window.location.reload()}>
-            RETRY
-          </button>
-        </p>
-      )}
     </div>
-  );
-};
+  </div>
+);
 
 export default App;

@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 // Const
-import { DEFAULT_GRID_SIZE, DIRECTIONS } from '../const';
+import { DEFAULT_GRID_SIZE, DIRECTIONS } from '../utils/const';
 // Types
-import { HeadPosType, DirectionsType } from '../type';
+import { HeadPosType, DirectionsType } from '../utils/type';
 
 export const useSnake = (): {
   bodyIndexes: (number | null)[];

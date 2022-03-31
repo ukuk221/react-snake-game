@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+  @apply text-center;
+  max-width: calc(9px * 35 + 1px * 2);
+}
+
+.field {
+  @apply grid;
+  grid-template-columns: repeat(35, 9px); /* 10列 幅30px */
+  grid-template-rows: repeat(35, 9px); /* 10行 高さ30px */
+}

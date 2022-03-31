@@ -1,30 +1,15 @@
 import { VFC } from 'react';
-// library
-
-/**
- * style
- */
-// const HeaderS = styled.header`
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-
-// const TitleS = styled.h1`
-//   font-size: 1.4rem;
-// `;
-
-// const ScoreS = styled.p`
-//   font-size: 1.4rem;
-// `;
+// Components
+import DisplayInfomation from './DisplayInfomation';
 
 const Header: VFC = () => (
-  //   <HeaderS>
-  //     <TitleS>React Snake Game</TitleS>
-  //     <ScoreS>0</ScoreS>
-  //   </HeaderS>
-  <div>p</div>
+  <div className="flex flex-col items-center">
+    {/* タイトル */}
+    <p className="text-2xl font-bold">React Snake Game</p>
+
+    {/* ゲーム情報 */}
+    <DisplayInfomation />
+  </div>
 );
 
 export default Header;

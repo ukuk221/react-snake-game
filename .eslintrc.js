@@ -82,6 +82,15 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      // propsTypesプロパティ定義の強制を解除
+      files: ['*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
+  ],
   settings: {
     'import/resolver': {
       node: {
