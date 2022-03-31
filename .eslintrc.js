@@ -51,11 +51,12 @@ module.exports = {
         allowAsStatement: true,
       },
     ],
+    // アロー関数しか受け付けない設定
     'react/function-component-definition': [
       'error',
       {
-        namedComponents: 'function-expression',
-        unnamedComponents: 'function-expression',
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
       },
     ],
 
