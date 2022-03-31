@@ -81,6 +81,8 @@ module.exports = {
         optionalDependencies: false,
       },
     ],
+    // インクリメント許可
+    'no-plusplus': 'off',
   },
   overrides: [
     {
